@@ -12,7 +12,7 @@ Started developing this module because I need it for another application I've be
 
 After you have installed go, run this command to install the `textract` package:
 
-    go get github.com/chchench/textract
+    go get github.com/tanzyy96/textract
 
 ## Roadmap
 

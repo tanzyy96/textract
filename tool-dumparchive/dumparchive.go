@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/chchench/textract"
+	"github.com/tanzyy96/textract"
 )
 
 var (
@@ -16,7 +16,6 @@ var (
 )
 
 func main() {
-
 	flag.Parse()
 
 	if *target == "" {

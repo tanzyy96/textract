@@ -109,6 +109,11 @@ func ExtractArchiveContent(path string, filter Filter) (*[]MemberFileContent, er
 }
 
 func GetReaderAt(r io.Reader) io.ReaderAt {
+	// buff := bytes.NewBuffer([]byte{})
+	// _, err := io.Copy(buff, r)
+	// if err != nil {
+	// 	return nil
+	// }
 	buffer, err := io.ReadAll(r)
 	if err != nil {
 		return nil

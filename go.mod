@@ -1,4 +1,4 @@
-module github.com/chchench/textract
+module github.com/tanzyy96/textract
 
 go 1.19
 
