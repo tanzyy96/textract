@@ -38,7 +38,7 @@ func RetrieveText(r io.Reader, size int64) (string, error) {
 	ft := DetectFileType(r)
 
 	for _, p := range parsers {
-		if ft == p.trueType() {
+		if ft == p.trueType() || ft == "application/octet-stream" {
 			err := p.readFromReader(r, size)
 			if err != nil {
 				return "", nil
