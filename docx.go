@@ -2,6 +2,7 @@ package textract
 
 import (
 	"encoding/xml"
+	"io"
 )
 
 /***************************************************************************
@@ -67,6 +68,17 @@ func (d *DocxParser) readFile(path string) error {
 	return nil
 }
 
+func (d *DocxParser) readFromReader(reader io.Reader, size int64) error {
+	list, err := ExtractArchiveContentFromReader(reader, size, d.filter)
+	if err != nil {
+		return err
+	}
+
+	d.Content = *list
+
+	return nil
+}
+
 func (d *DocxParser) retrieveTextFromFile() (string, error) {
 	overallText := ""
 
@@ -82,7 +94,6 @@ func (d *DocxParser) retrieveTextFromFile() (string, error) {
 }
 
 func (d *DocxParser) docXML2Text(identifier string, byteData []byte) (string, error) {
-
 	doc := Docx_Doc{}
 
 	if err := xml.Unmarshal(byteData, &doc); err != nil {
